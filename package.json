@@ -1,0 +1,43 @@
+{
+  "name": "React-E15-challenge-eval-chatroom",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "",
+  "author": "Maxime Vasse <maxime@oclock.io>",
+  "license": "MIT",
+  "devDependencies": {
+    "auto-reload-brunch": "*",
+    "autoprefixer": "*",
+    "babel-brunch": "https://github.com/babel/babel-brunch",
+    "babel-eslint": "*",
+    "babel-plugin-transform-class-properties": "*",
+    "babel-plugin-transform-object-rest-spread": "*",
+    "babel-preset-env": "*",
+    "babel-preset-react": "*",
+    "brunch": "*",
+    "eslint": "*",
+    "eslint-config-airbnb": "*",
+    "eslint-import-resolver-node": "*",
+    "eslint-plugin-import": "*",
+    "eslint-plugin-jsx-a11y": "*",
+    "eslint-plugin-react": "*",
+    "postcss-brunch": "0.5.0",
+    "stylus-brunch": "*"
+  },
+  "dependencies": {
+    "babel-polyfill": "*",
+    "classnames": "*",
+    "express": "*",
+    "prop-types": "*",
+    "react": "*",
+    "react-dom": "*",
+    "react-redux": "*",
+    "redux": "*",
+    "socket.io": "*"
+  },
+  "scripts": {
+    "start:node": "node server/index.js",
+    "start:brunch": "brunch watch",
+    "save-deps": "rm -rf node_modules && npm update --save && npm update --save-dev"
+  }
+}
