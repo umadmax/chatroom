@@ -6,6 +6,9 @@ import socket from './socket';
 
 const enhancers = applyMiddleware(socket);
 
-const store = createStore(reducer);
+const store = createStore(
+  reducer,
+  composeWithDevTools(enhancers),
+);
 
 export default store;

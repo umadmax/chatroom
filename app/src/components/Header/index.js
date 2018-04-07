@@ -1,5 +1,7 @@
 import React from 'react';
 
+import ConnectForm from 'src/containers/ConnectForm';
+
 const Header = () => (
   <div className="header">
     <div className="dots">
@@ -8,16 +10,7 @@ const Header = () => (
       <span className="dot is-success" />
     </div>
     <span className="title">Chatroom</span>
-    <form className="user-form">
-      <input
-        type="text"
-        className="user-input"
-        placeholder="Join room"
-      />
-      <button type="submit" className="user-button">
-        <i className="fas fa-plus" />
-      </button>
-    </form>
+    <ConnectForm />
   </div>
 );
 

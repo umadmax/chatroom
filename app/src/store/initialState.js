@@ -1,6 +1,7 @@
 const initialState = {
   userInput: '',
   messageInput: '',
+  connectedUser: '',
   messages: [
     {
       user: 'Perceval',

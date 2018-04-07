@@ -1,4 +1,4 @@
-const socket = () => {
+const socket = store => next => (action) => {
   console.log('Hello');
 };
 
