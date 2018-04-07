@@ -33,6 +33,7 @@
     "react-dom": "*",
     "react-redux": "*",
     "redux": "*",
+    "redux-devtools-extension": "^2.13.2",
     "socket.io": "*"
   },
   "scripts": {

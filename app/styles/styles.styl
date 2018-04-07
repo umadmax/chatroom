@@ -1,0 +1,104 @@
+body
+  font-family: $font
+
+#app
+  width: 60%
+  margin: 3em auto
+  background: $dark
+  height: 80vh
+  border-radius: .25em
+  position: relative
+
+.header
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding-top: .5em
+
+.dots
+  width: 33%
+  padding-left: .3em
+
+.dot
+  display: inline-block
+  width: 1em
+  height: 1em
+  background: $light
+  border-radius: 50%
+  margin: 0 .3em
+
+.title
+  width: 33%
+  text-align center
+  color: $light
+
+.user-form
+  display: flex
+  justify-content: flex-end
+  width: 33%
+
+.user-input
+  width: 70%
+  background: none
+  border: none
+  font-family: $font
+  color: $primary
+  font-size: .8em
+
+.user-button
+  background: $primary
+  color: $dark
+  border: none
+  font-size: .6em
+  margin: 0 1em
+  display: flex
+  justify-content: center
+  align-items: center
+  width: 2em
+  height: 2em
+  border-radius: 50%
+
+.messages
+  padding: 2em 1em
+  color: $light
+
+.message
+  width: 100%
+  display: flex
+  justify-content: flex-start
+  margin-bottom: .5em
+
+  .user
+    color: $primary
+    margin-right: 1em
+    width: 20%
+
+.message-form
+  position: absolute
+  bottom: 0
+  padding: 1em
+  width: 100%
+
+.message-input
+  width: 100%
+  background: none
+  border: none
+  font-family: $font
+  font-size: 1em
+  color: $primary
+
+  &::placeholder
+    color: $primary
+    opacity: .5
+
+  &:focus::placeholder
+    opacity: 0
+
+.is-primary
+  background: $primary
+.is-warning
+  background: $warning
+.is-danger
+  background: $danger
+.is-success
+  background: $success

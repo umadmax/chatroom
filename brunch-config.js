@@ -11,6 +11,9 @@ exports.config = {
     },
   },
   plugins: {
+    stylus: {
+      imports: ['app/styles/_variables'],
+    },
     postcss: {
       processors: [require('autoprefixer')],
     },
