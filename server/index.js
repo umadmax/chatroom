@@ -4,7 +4,7 @@
 const express = require('express');
 const { join } = require('path');
 const { Server } = require('http');
-const socket = require('socket.io');
+const socketIO = require('socket.io');
 
 
 /*
@@ -12,7 +12,7 @@ const socket = require('socket.io');
  */
 const app = express();
 const server = Server(app);
-const io = socket(server);
+const io = socketIO(server);
 
 const indexPath = join(__dirname, '..', '/public/index.html');
 const assetsPath = join(__dirname, '..', 'public');
@@ -33,12 +33,15 @@ app.get('/', (req, res) => {
 /*
  * Socket.io
  */
-let id = 0;
 io.on('connection', (socket) => {
-  console.log('a user connected');
+  socket.username = 'Anonymous';
+  console.log(`${socket.username} is connected`);
+  socket.on('change_username', (data) => {
+    socket.username = data.username;
+  });
   socket.on('send_message', (message) => {
-    console.log('New message : ', message);
-    socket.broadcast.emit('send_message', message);
+    console.log(`New message from ${socket.username}: ${message.message}`);
+    io.sockets.emit('send_message', message);
   });
 });
 

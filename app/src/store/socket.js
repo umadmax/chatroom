@@ -1,28 +1,34 @@
-import { types, connectWebSocket } from 'src/store/reducer';
-import { receiveMessage } from './reducer';
+import { types } from 'src/store/reducer';
+import { receiveMessage, addMessage } from './reducer';
 
-let socketIO;
-let id = 0;
+const socketIO = window.io();
 
 // eslint-disable-next-line
 const socket = store => next => (action) => {
   const state = store.getState();
   switch (action.type) {
+    case types.WEBSOCKET_CONNECT:
+      store.dispatch(receiveMessage());
+      break;
     case types.MESSAGE_RECEIVED:
-      socketIO = window.io();
-      socketIO.on('send_message', (message) => {
-        store.dispatch(receiveMessage({
-          user: state.connectedUser,
-          text: message,
-          id: ++id,
+      console.log('Message received');
+      socketIO.on('send_message', (data) => {
+        console.log(data);
+        store.dispatch(addMessage({
+          user: data.username,
+          value: data.message,
         }));
       });
       break;
-    case types.CHANGE_INPUT:
-      break;
     case types.MESSAGE_SEND:
-      socketIO = window.io();
-      socketIO.emit('send_message', action.value);
+      socketIO.emit('send_message', {
+        username: state.connectedUser,
+        message: action.value,
+      });
+      break;
+    case types.LOG_USER:
+      console.log('Username changed');
+      socketIO.emit('change_username', { username: action.user });
       break;
     default:
   }
