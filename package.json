@@ -37,6 +37,7 @@
     "socket.io": "^2.1.0"
   },
   "scripts": {
+    "build": "brunch build --production",
     "start:node": "node server/index.js",
     "start:brunch": "brunch watch",
     "save-deps": "rm -rf node_modules && npm update --save && npm update --save-dev"
