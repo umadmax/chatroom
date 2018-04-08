@@ -12,8 +12,8 @@ class Field extends React.Component {
       <input
         type="text"
         name={this.props.name}
-        className="user-input"
-        placeholder="Join room"
+        className={this.props.className}
+        placeholder={this.props.placeholder}
         onChange={this.handleChange}
         value={this.props.value}
       />
@@ -23,8 +23,14 @@ class Field extends React.Component {
 
 Field.propTypes = {
   name: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
+  value: PropTypes.string,
   onChange: PropTypes.func.isRequired,
+};
+
+Field.defaultProps = {
+  value: '',
 };
 
 export default Field;

@@ -1,21 +1,21 @@
 /*
  * Require
  */
-var express = require('express');
-var join = require('path').join;
-var Server = require('http').Server;
-var socket = require('socket.io');
+const express = require('express');
+const { join } = require('path');
+const { Server } = require('http');
+const socket = require('socket.io');
 
 
 /*
  * Vars
  */
-var app = express();
-var server = Server(app);
-var io = socket(server);
+const app = express();
+const server = Server(app);
+const io = socket(server);
 
-var indexPath = join(__dirname, '..', '/public/index.html');
-var assetsPath = join(__dirname, '..', 'public');
+const indexPath = join(__dirname, '..', '/public/index.html');
+const assetsPath = join(__dirname, '..', 'public');
 
 
 /*
@@ -25,7 +25,7 @@ var assetsPath = join(__dirname, '..', 'public');
 app.use(express.static(assetsPath, { index: false }));
 
 // Route
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
   res.sendFile(indexPath);
 });
 
@@ -34,10 +34,11 @@ app.get('/', function(req, res) {
  * Socket.io
  */
 let id = 0;
-io.on('connection', function(socket) {
-  socket.on('send_message', function(message) {
-    message.id = ++id;
-    io.emit('send_message', message);
+io.on('connection', (socket) => {
+  console.log('a user connected');
+  socket.on('send_message', (message) => {
+    console.log('New message : ', message);
+    socket.broadcast.emit('send_message', message);
   });
 });
 
@@ -45,6 +46,6 @@ io.on('connection', function(socket) {
 /*
  * Server
  */
-server.listen(3000, function() {
+server.listen(3000, () => {
   console.log('listening on *:3000');
 });

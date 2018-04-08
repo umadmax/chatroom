@@ -12,7 +12,11 @@ class ConnectForm extends React.Component {
   render() {
     return (
       <form className="user-form" onSubmit={this.handleSubmit}>
-        <Field name="userInput" />
+        <Field
+          name="userInput"
+          placeholder="Join room"
+          className="user-input"
+        />
         <button type="submit" className="user-button">
           <i className="fas fa-plus" />
         </button>

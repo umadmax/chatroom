@@ -34,7 +34,7 @@
     "react-redux": "*",
     "redux": "*",
     "redux-devtools-extension": "^2.13.2",
-    "socket.io": "*"
+    "socket.io": "^2.1.0"
   },
   "scripts": {
     "start:node": "node server/index.js",

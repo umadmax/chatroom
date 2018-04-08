@@ -2,7 +2,7 @@ import React from 'react';
 
 import Header from 'src/components/Header';
 import Messages from 'src/containers/Messages';
-import ChatBox from 'src/components/ChatBox';
+import ChatBox from 'src/containers/ChatBox';
 
 const App = () => (
   <div id="app">

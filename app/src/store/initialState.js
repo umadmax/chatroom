@@ -1,5 +1,4 @@
 const initialState = {
-  userInput: '',
   messageInput: '',
   connectedUser: '',
   messages: [
