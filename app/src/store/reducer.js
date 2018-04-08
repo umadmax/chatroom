@@ -8,6 +8,8 @@ export const types = {
   CHANGE_INPUT: 'CHANGE_INPUT',
 };
 
+let id = 2;
+
 const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case types.WEBSOCKET_CONNECT:
@@ -17,6 +19,11 @@ const reducer = (state = initialState, action = {}) => {
     case types.MESSAGE_SEND:
       return {
         ...state,
+        messages: [...state.messages, {
+          user: state.connectedUser,
+          text: action.value,
+          id: ++id,
+        }],
         messageInput: '',
       };
     case types.MESSAGE_RECEIVED:
