@@ -1,13 +1,14 @@
 import { types } from 'src/store/reducer';
 import { receiveMessage, addMessage } from './reducer';
 
-const socketIO = window.io();
+let socketIO;
 
 // eslint-disable-next-line
 const socket = store => next => (action) => {
   const state = store.getState();
   switch (action.type) {
     case types.WEBSOCKET_CONNECT:
+      socketIO = window.io();
       store.dispatch(receiveMessage());
       break;
     case types.MESSAGE_RECEIVED:
