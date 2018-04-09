@@ -9,6 +9,7 @@ const socket = store => next => (action) => {
   switch (action.type) {
     case types.WEBSOCKET_CONNECT:
       socketIO = window.io();
+      console.log(socketIO);
       store.dispatch(receiveMessage());
       break;
     case types.MESSAGE_RECEIVED:
